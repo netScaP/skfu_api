@@ -9,8 +9,27 @@ export default function (app: Application): typeof Model {
   const vacancyFeedbacks = sequelizeClient.define(
     'vacancy_feedbacks',
     {
-      text: {
+      type: {
         type: DataTypes.STRING,
+        validate: {
+          isIn: [['interviewer', 'vacancy']],
+        },
+        allowNull: false,
+      },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      assessment: {
+        type: DataTypes.INTEGER,
+        validate: {
+          min: 0,
+          max: 10,
+        },
         allowNull: false,
       },
     },

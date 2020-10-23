@@ -9,12 +9,21 @@ export default function (app: Application): typeof Model {
   const companies = sequelizeClient.define(
     'companies',
     {
+      email: {
+        type: DataTypes.STRING,
+      },
+      phone: {
+        type: DataTypes.STRING,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       description: {
         type: DataTypes.TEXT,
+      },
+      isAvailable: {
+        type: DataTypes.BOOLEAN,
       },
     },
     {

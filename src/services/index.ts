@@ -15,6 +15,7 @@ import universityVacancy from './university-vacancy/university-vacancy.service';
 import universitySpecialization from './university-specialization/university-specialization.service';
 import workers from './workers/workers.service';
 import studentUniversity from './student-university/student-university.service';
+import vacancySpecialization from './vacancy-specialization/vacancy-specialization.service';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 export default function (app: Application): void {
@@ -34,4 +35,5 @@ export default function (app: Application): void {
   app.configure(universitySpecialization);
   app.configure(workers);
   app.configure(studentUniversity);
+  app.configure(vacancySpecialization);
 }

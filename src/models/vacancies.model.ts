@@ -72,6 +72,13 @@ export default function (app: Application): typeof Model {
       as: 'city',
       foreignKey: { name: 'cityId' },
     });
+
+    (vacancies as any).belongsToMany(models.specializations, {
+      as: 'specializations',
+      through: models.vacancy_specialization,
+      foreignKey: { name: 'universityId', allowNull: false },
+      onDelete: 'CASCADE',
+    });
   };
 
   return vacancies;

@@ -48,6 +48,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@feathers-plus/batch-loader@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@feathers-plus/batch-loader/-/batch-loader-0.3.6.tgz#1e096e95fcdffb83fb1a65468e6ef80b416f7d98"
+  integrity sha512-r+n31iZ/B5Rl1mLkC9/S20UI445MdkZvE3VBmjupep2t8OuyTYHPkFEgR25HY6khH+RothK1VL3B5eumk9N2QQ==
+
 "@feathersjs/adapter-commons@^4.4.3":
   version "4.5.7"
   resolved "https://registry.yarnpkg.com/@feathersjs/adapter-commons/-/adapter-commons-4.5.7.tgz#8808bd0392a63713f1a7bead44a2910fcebf8152"
@@ -1328,6 +1333,22 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
+feathers-hooks-common@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/feathers-hooks-common/-/feathers-hooks-common-5.0.4.tgz#1c525e54211ebf9c33ffa1ffc20b6d68b7e1eb8a"
+  integrity sha512-FSRUUQZBz8UegHha4uEuP0lfknXvL/BqHqeXS6BfPZ7z/oREdWKvi8hZ1qBeD2pYpwR0zWcGBAeGoVZ9p6MuJQ==
+  dependencies:
+    "@feathers-plus/batch-loader" "^0.3.6"
+    "@feathersjs/commons" "^4.5.8"
+    "@feathersjs/errors" "^4.5.8"
+    "@feathersjs/feathers" "^4.5.8"
+    ajv "^6.12.4"
+    debug "^4.1.1"
+    graphql "^15.3.0"
+    lodash "^4.17.20"
+    process "0.11.10"
+    traverse "^0.6.6"
+
 feathers-sequelize@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/feathers-sequelize/-/feathers-sequelize-6.2.0.tgz#1de0352f52350a2bfbe513a0a25d36adea34ec68"
@@ -1526,6 +1547,11 @@ grant@^4.7.0:
     qs "^6.9.1"
     request-compose "^1.2.1"
     request-oauth "0.0.3"
+
+graphql@^15.3.0:
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
+  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
 growl@1.10.5:
   version "1.10.5"
@@ -2466,6 +2492,11 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
+process@0.11.10:
+  version "0.11.10"
+  resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
+  integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
+
 progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
@@ -3096,6 +3127,11 @@ toposort-class@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/toposort-class/-/toposort-class-1.0.1.tgz#7ffd1f78c8be28c3ba45cd4e1a3f5ee193bd9988"
   integrity sha1-f/0feMi+KMO6Rc1OGj9e4ZO9mYg=
+
+traverse@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
+  integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
 
 tree-kill@^1.2.2:
   version "1.2.2"
