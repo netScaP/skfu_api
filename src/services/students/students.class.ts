@@ -6,7 +6,7 @@ export interface Data {
   id: Id;
   firstName: string;
   lastName: string;
-  birthday: Date;
+  birthDate: Date;
   goal?: string;
   education?: string;
   job?: string;
@@ -16,7 +16,7 @@ export interface Data {
   userId: Id;
   cityId: Id;
   universitiesIds: ServiceModels['student-university'][];
-  specializationId: Id;
+  tags: string[];
   createdAt: Date;
   updatedAt: Date;
 

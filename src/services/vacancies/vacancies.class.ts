@@ -13,8 +13,11 @@ export interface Data {
   status: 'available' | 'closed';
   companyId?: Id;
   cityId?: Id;
+  tags: string[];
   createdAt: Date;
   updatedAt: Date;
+
+  dataValues?: Data;
 }
 
 declare module '../../declarations' {

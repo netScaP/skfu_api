@@ -6,7 +6,6 @@ export interface Data {
   id: Id;
   studentId: Id;
   universityId: Id;
-  specializationId: Id;
   enterDate: Date;
   endDate?: Date;
   description?: string;

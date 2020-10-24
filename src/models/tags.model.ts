@@ -6,18 +6,11 @@ import { HookReturn } from 'sequelize/types/lib/hooks';
 
 export default function (app: Application): typeof Model {
   const sequelizeClient: Sequelize = app.get('sequelizeClient');
-  const specializations = sequelizeClient.define(
-    'specializations',
+  const tags = sequelizeClient.define(
+    'tags',
     {
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      type: {
-        type: DataTypes.STRING,
-        validate: {
-          isIn: [['main', 'sub']],
-        },
         allowNull: false,
       },
     },
@@ -31,12 +24,10 @@ export default function (app: Application): typeof Model {
   );
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  (specializations as any).associate = (models: any): void => {
-    (specializations as any).hasMany(models.specializations, {
-      foreignKey: { name: 'specializationId', allowNull: true },
-      as: 'subSpecializations',
-    });
+  (tags as any).associate = (models: any): void => {
+    // Define associations here
+    // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return specializations;
+  return tags;
 }

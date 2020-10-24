@@ -52,12 +52,7 @@ export default function (app: Application): typeof Model {
   );
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  (studentUniversity as any).associate = (models: any): void => {
-    (studentUniversity as any).belongsTo(models.specializations, {
-      as: 'specialization',
-      foreignKey: { name: 'specializationId', allowNull: false },
-    });
-  };
+  (studentUniversity as any).associate = (models: any): void => {};
 
   return studentUniversity;
 }

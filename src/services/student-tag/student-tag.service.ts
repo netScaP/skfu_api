@@ -1,14 +1,14 @@
-// Initializes the `student-specialization` service on path `/student-specialization`
+// Initializes the `student-tag` service on path `/student-tag`
 import { ServiceAddons } from '@feathersjs/feathers';
 import { Application } from '../../declarations';
-import { StudentSpecialization } from './student-specialization.class';
-import createModel from '../../models/student-specialization.model';
-import hooks from './student-specialization.hooks';
+import { StudentTag } from './student-tag.class';
+import createModel from '../../models/student-tag.model';
+import hooks from './student-tag.hooks';
 
 // Add this service to the service type index
 declare module '../../declarations' {
   interface ServiceTypes {
-    'student-specialization': StudentSpecialization & ServiceAddons<any>;
+    'student-tag': StudentTag & ServiceAddons<any>;
   }
 }
 
@@ -19,10 +19,10 @@ export default function (app: Application): void {
   };
 
   // Initialize our service with any options it requires
-  app.use('/student-specialization', new StudentSpecialization(options, app));
+  app.use('/student-tag', new StudentTag(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('student-specialization');
+  const service = app.service('student-tag');
 
   service.hooks(hooks);
 }

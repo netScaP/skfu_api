@@ -73,10 +73,10 @@ export default function (app: Application): typeof Model {
       foreignKey: { name: 'cityId' },
     });
 
-    (vacancies as any).belongsToMany(models.specializations, {
-      as: 'specializations',
-      through: models.vacancy_specialization,
-      foreignKey: { name: 'universityId', allowNull: false },
+    (vacancies as any).belongsToMany(models.tags, {
+      as: 'tags',
+      through: models.vacancy_tag,
+      foreignKey: { name: 'vacancyId', allowNull: false },
       onDelete: 'CASCADE',
     });
   };

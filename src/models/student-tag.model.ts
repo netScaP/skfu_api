@@ -6,8 +6,8 @@ import { HookReturn } from 'sequelize/types/lib/hooks';
 
 export default function (app: Application): typeof Model {
   const sequelizeClient: Sequelize = app.get('sequelizeClient');
-  const studentSpecialization = sequelizeClient.define(
-    'student_specialization',
+  const studentTag = sequelizeClient.define(
+    'student_tag',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -23,11 +23,11 @@ export default function (app: Application): typeof Model {
           key: 'id',
         },
       },
-      specializationId: {
+      tagId: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: 'specializations',
+          model: 'tags',
           key: 'id',
         },
       },
@@ -42,10 +42,10 @@ export default function (app: Application): typeof Model {
   );
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  (studentSpecialization as any).associate = (models: any): void => {
+  (studentTag as any).associate = (models: any): void => {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return studentSpecialization;
+  return studentTag;
 }

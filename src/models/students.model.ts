@@ -68,9 +68,9 @@ export default function (app: Application): typeof Model {
       foreignKey: { name: 'studentId', allowNull: false },
       onDelete: 'CASCADE',
     });
-    (students as any).belongsToMany(models.specializations, {
-      as: 'specializations',
-      through: models.student_specialization,
+    (students as any).belongsToMany(models.tags, {
+      as: 'tags',
+      through: models.student_tag,
       foreignKey: { name: 'studentId', allowNull: false },
       onDelete: 'CASCADE',
     });
