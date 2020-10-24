@@ -59,11 +59,7 @@ export default {
   },
 
   error: {
-    all: [
-      (context: HookContext) => {
-        console.log(context.error);
-      },
-    ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -93,8 +89,8 @@ function studentFilters() {
             SELECT CASE WHEN EXISTS (
               SELECT *
                 FROM "tags"
-                LEFT OUTER JOIN "student_tag" ON "student_tag"."studentId" = "students"."id" AND "student_tag"."tagId" = "tags"."id"
-                WHERE "tags"."name" iLike '%${tag}%'
+                INNER JOIN "student_tag" ON "student_tag"."studentId" = "students"."id" AND "student_tag"."tagId" = "tags"."id"
+                WHERE "tags"."name" = '${tag}'
             )
             THEN TRUE
             ELSE FALSE
