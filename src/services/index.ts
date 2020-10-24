@@ -15,6 +15,7 @@ import studentUniversity from './student-university/student-university.service';
 import tags from './tags/tags.service';
 import studentTag from './student-tag/student-tag.service';
 import vacancyTag from './vacancy-tag/vacancy-tag.service';
+import stats from './stats/stats.service';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 export default function (app: Application): void {
@@ -34,4 +35,5 @@ export default function (app: Application): void {
   app.configure(tags);
   app.configure(studentTag);
   app.configure(vacancyTag);
+  app.configure(stats);
 }
