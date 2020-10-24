@@ -2,16 +2,29 @@ import { Hook, HookContext } from '@feathersjs/feathers';
 
 export default (options: { role: 'student' | 'worker' | 'university' | 'company' }): Hook => {
   return async (context: HookContext) => {
-    const { app, result, data } = context;
+    const {
+      app,
+      result,
+      type,
+      params: { $user },
+      data,
+    } = context;
     const { role } = options;
     const record = result && result.dataValues ? result.dataValues : result;
 
-    if (!record || !data || !data.user) {
+    if (type === 'before' && data && data.user) {
+      context.params.$user = data.user;
+      delete data.user;
+
+      return context;
+    }
+
+    if (!record || $user) {
       return context;
     }
 
     const userData = {
-      ...data.user,
+      ...$user,
       role,
     };
     if (role === 'worker') {

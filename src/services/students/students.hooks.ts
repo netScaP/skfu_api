@@ -33,7 +33,7 @@ export default {
       studentFilters(),
     ],
     get: [],
-    create: [createTags()],
+    create: [createTags(), createUser({ role: 'student' })],
     update: [createTags()],
     patch: [createTags()],
     remove: [],
@@ -59,7 +59,11 @@ export default {
   },
 
   error: {
-    all: [],
+    all: [
+      (context: HookContext) => {
+        console.log(context.error);
+      },
+    ],
     find: [],
     get: [],
     create: [],
