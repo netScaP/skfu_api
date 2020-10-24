@@ -14,6 +14,9 @@ export default function (app: Application): typeof Model {
         allowNull: false,
         unique: true,
       },
+      phone: {
+        type: DataTypes.STRING,
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,

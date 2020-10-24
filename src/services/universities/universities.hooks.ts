@@ -1,4 +1,5 @@
 import * as authentication from '@feathersjs/authentication';
+import createUser from '../../hooks/create-user';
 import search from '../../hooks/search';
 import setManyAssociation from '../../hooks/set-many-association';
 // Don't remove this comment. It's needed to format import lines nicely.
@@ -27,7 +28,7 @@ export default {
     ],
     find: [],
     get: [],
-    create: [],
+    create: [createUser({ role: 'university' })],
     update: [],
     patch: [],
     remove: [],

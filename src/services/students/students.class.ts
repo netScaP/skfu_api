@@ -1,5 +1,5 @@
 import { Service, SequelizeServiceOptions } from 'feathers-sequelize';
-import { Application } from '../../declarations';
+import { Application, ServiceModels } from '../../declarations';
 import { Id } from '@feathersjs/feathers';
 
 export interface Data {
@@ -15,10 +15,12 @@ export interface Data {
   achievements?: string;
   userId: Id;
   cityId: Id;
-  universityId: Id;
+  universitiesIds: ServiceModels['student-university'][];
   specializationId: Id;
   createdAt: Date;
   updatedAt: Date;
+
+  dataValues?: Data;
 }
 
 declare module '../../declarations' {

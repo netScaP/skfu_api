@@ -9,6 +9,7 @@ export interface Data {
   specializationId: Id;
   enterDate: Date;
   endDate?: Date;
+  description?: string;
   createdAt: Date;
   updatedAt: Date;
 }

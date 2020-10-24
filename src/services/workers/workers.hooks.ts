@@ -1,4 +1,5 @@
 import * as authentication from '@feathersjs/authentication';
+import createUser from '../../hooks/create-user';
 import search from '../../hooks/search';
 // Don't remove this comment. It's needed to format import lines nicely.
 
@@ -19,7 +20,7 @@ export default {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [createUser({ role: 'worker' })],
     update: [],
     patch: [],
     remove: [],

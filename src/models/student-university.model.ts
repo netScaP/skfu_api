@@ -31,6 +31,16 @@ export default function (app: Application): typeof Model {
           key: 'id',
         },
       },
+
+      enterDate: {
+        type: DataTypes.DATEONLY,
+      },
+      endDate: {
+        type: DataTypes.DATEONLY,
+      },
+      description: {
+        type: DataTypes.TEXT,
+      },
     },
     {
       hooks: {
