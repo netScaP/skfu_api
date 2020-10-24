@@ -1,6 +1,7 @@
 import * as feathersAuthentication from '@feathersjs/authentication';
 import * as local from '@feathersjs/authentication-local';
 import { HookContext } from '@feathersjs/feathers';
+import search from '../../hooks/search';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const { authenticate } = feathersAuthentication.hooks;
@@ -9,17 +10,9 @@ const { hashPassword, protect } = local.hooks;
 export default {
   before: {
     all: [],
-    find: [authenticate('jwt')],
+    find: [authenticate('jwt'), search({ fields: ['email'] })],
     get: [authenticate('jwt')],
-    create: [
-      (context: HookContext) => {
-        console.log(context.data);
-      },
-      hashPassword('password'),
-      (context: HookContext) => {
-        console.log(context.data);
-      },
-    ],
+    create: [hashPassword('password')],
     update: [hashPassword('password'), authenticate('jwt')],
     patch: [hashPassword('password'), authenticate('jwt')],
     remove: [authenticate('jwt')],
