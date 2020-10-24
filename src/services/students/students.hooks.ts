@@ -2,16 +2,28 @@ import * as authentication from '@feathersjs/authentication';
 import { HookContext } from '@feathersjs/feathers';
 import { ServiceModels } from '../../declarations';
 import createUser from '../../hooks/create-user';
+import includes from '../../hooks/includes';
 import search from '../../hooks/search';
 import setManyAssociation from '../../hooks/set-many-association';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const { authenticate } = authentication.hooks;
 
+const joins = [
+  {
+    uniqueName: 'user',
+    model: 'users',
+    required: false,
+  },
+];
+const defaultJoins = {
+  user: true,
+};
+
 export default {
   before: {
-    all: [authenticate('jwt')],
-    find: [search({ queries: ['CONCAT("users"."firstName", \' \' ,"users"."lastName")'] })],
+    all: [authenticate('jwt'), includes({ joins, defaultJoins })],
+    find: [search({ queries: ['CONCAT("students"."firstName", \' \' ,"students"."lastName")'] })],
     get: [],
     create: [],
     update: [],

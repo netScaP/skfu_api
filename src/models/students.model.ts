@@ -59,6 +59,9 @@ export default function (app: Application): typeof Model {
       as: 'city',
       foreignKey: { name: 'cityId' },
     });
+    (students as any).belongsTo(models.users, {
+      foreignKey: { name: 'userId' },
+    });
     (students as any).belongsToMany(models.universities, {
       as: 'universities',
       through: models.student_university,
