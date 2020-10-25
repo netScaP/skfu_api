@@ -44,6 +44,10 @@ export default (options: { role: 'student' | 'worker' | 'university' | 'company'
     });
     record.accessToken = accessToken;
 
+    if (role === 'student') {
+      await app.service('students').patch(record.id, { userId: user.id });
+    }
+
     return context;
   };
 };
