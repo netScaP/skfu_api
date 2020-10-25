@@ -7,13 +7,13 @@ const { authenticate } = authentication.hooks;
 
 export default {
   before: {
-    all: [authenticate('jwt')],
+    all: [],
     find: [search({ fields: ['name'] })],
     get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: [],
+    create: [createUser({ role: 'university' })],
+    update: [authenticate('jwt')],
+    patch: [authenticate('jwt')],
+    remove: [authenticate('jwt')],
   },
 
   after: {

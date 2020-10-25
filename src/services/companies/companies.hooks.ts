@@ -1,4 +1,5 @@
 import * as authentication from '@feathersjs/authentication';
+import { HookContext } from '@feathersjs/feathers';
 
 import createUser from '../../hooks/create-user';
 import search from '../../hooks/search';
@@ -9,13 +10,18 @@ const { authenticate } = authentication.hooks;
 
 export default {
   before: {
-    all: [authenticate('jwt')],
-    find: [search({ fields: ['name'] })],
-    get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: [],
+    all: [],
+    find: [authenticate('jwt'), search({ fields: ['name'] })],
+    get: [authenticate('jwt')],
+    create: [
+      (context: HookContext) => {
+        console.log(context.data);
+      },
+      createUser({ role: 'company' }),
+    ],
+    update: [authenticate('jwt')],
+    patch: [authenticate('jwt')],
+    remove: [authenticate('jwt')],
   },
 
   after: {

@@ -19,7 +19,7 @@ export default (options: { role: 'student' | 'worker' | 'university' | 'company'
       return context;
     }
 
-    if (!record || $user) {
+    if (!record || !$user) {
       return context;
     }
 
@@ -37,6 +37,12 @@ export default (options: { role: 'student' | 'worker' | 'university' | 'company'
       userData.companyId = record.id;
     }
     const user = await app.service('users').create(userData);
+    const { accessToken } = await app.service('authentication').create({
+      email: userData.email,
+      password: userData.password,
+      strategy: 'local',
+    });
+    record.accessToken = accessToken;
 
     return context;
   };

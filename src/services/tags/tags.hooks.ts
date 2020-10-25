@@ -6,7 +6,7 @@ const { authenticate } = authentication.hooks;
 
 export default {
   before: {
-    all: [authenticate('jwt')],
+    all: [],
     find: [search({ fields: ['name'] })],
     get: [],
     create: [],

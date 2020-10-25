@@ -8,7 +8,7 @@ const { disablePagination } = commonHooks;
 
 export default {
   before: {
-    all: [authenticate('jwt')],
+    all: [],
     find: [search({ fields: ['name'] }), disablePagination()],
     get: [],
     create: [],

@@ -14,29 +14,19 @@ import { ServiceModels } from '../../declarations';
 const { authenticate } = authentication.hooks;
 const { alterItems } = commonHooks;
 
-const joins = [
-  {
-    uniqueName: 'user',
-    model: 'users',
-    required: false,
-  },
-];
-const defaultJoins = {
-  user: true,
-};
-
 export default {
   before: {
-    all: [authenticate('jwt'), includes({ joins, defaultJoins })],
+    all: [],
     find: [
+      authenticate('jwt'),
       search({ queries: ['CONCAT("students"."firstName", \' \' ,"students"."lastName")'] }),
       studentFilters(),
     ],
-    get: [],
+    get: [authenticate('jwt')],
     create: [createTags(), createUser({ role: 'student' })],
-    update: [createTags()],
-    patch: [createTags()],
-    remove: [],
+    update: [authenticate('jwt'), createTags()],
+    patch: [authenticate('jwt'), createTags()],
+    remove: [authenticate('jwt')],
   },
 
   after: {
